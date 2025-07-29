@@ -6,7 +6,7 @@
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 17:25:13 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/27 18:07:05 by natalieyan       ###   ########.fr       */
+/*   Updated: 2025/07/29 21:36:45 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ static int	is_in_stack(t_stack *a, int num)
 
 void	check_for_valid_char(char *str, int *i, int *sign)
 {
-	if (str[*i] == '-' && str[*i + 1] && str[*i + 1] >= '0' && str[*i
-			+ 1] <= '9')
+	if (str[*i] == '-' && str[*i + 1]
+		&& str[*i + 1] >= '0' && str[*i + 1] <= '9')
 	{
 		*sign = -1;
 		(*i)++;
 	}
-	else if (str[*i] == '+' && str[*i + 1] && str[*i + 1] >= '0' && str[*i
-			+ 1] <= '9')
+	else if (str[*i] == '+' && str[*i + 1]
+		&& str[*i + 1] >= '0' && str[*i + 1] <= '9')
 		(*i)++;
 	while (str[*i] == '0' && str[*i + 1])
 		(*i)++;

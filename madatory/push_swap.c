@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 17:26:54 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/26 17:26:59 by natalieyan       ###   ########.fr       */
+/*   Created: 2025/07/26 17:30:14 by natalieyan        #+#    #+#             */
+/*   Updated: 2025/07/29 21:36:45 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **a)
+int	main(int argc, char *argv[])
 {
-	t_stack	*tmp;
+	t_stack	*a;
+	t_stack	*b;
 
-	if (!a || !(*a) || stack_len(*a) < 2)
-		return ;
-	tmp = (*a);
-	(*a) = (*a)->next;
-	tmp->next = (*a)->next;
-	(*a)->next = tmp;
-}
-
-void	sa(t_stack **a)
-{
-	write(1, "sa\n", 3);
-	swap(a);
-}
-
-void	sb(t_stack **b)
-{
-	write(1, "sb\n", 3);
-	swap(b);
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	write(1, "ss\n", 3);
-	swap(a);
-	swap(b);
+	if (argc < 2)
+		return (0);
+	validation(argv);
+	a = NULL;
+	init_stack(argv, &a);
+	b = NULL;
+	setting_indexes(&a);
+	if (!sorted(a))
+	{
+		if (stack_len(a) <= 6)
+			simple_sort(&a, &b);
+		else
+			butterfly_sort(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
 }

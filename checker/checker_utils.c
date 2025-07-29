@@ -6,11 +6,11 @@
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 17:33:57 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/27 12:57:40 by natalieyan       ###   ########.fr       */
+/*   Updated: 2025/07/29 21:31:48 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../madatory/push_swap.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

@@ -2,9 +2,9 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCS)
 
-SRCS = push_swap.c ft_split.c errors.c valid.c initialize.c swap.c push.c rotate.c rev_rotate.c indexes.c sorting.c butterfly.c log.c
+SRCS = madatory/push_swap.c madatory/ft_split.c madatory/errors.c madatory/valid.c madatory/initialize.c madatory/swap.c madatory/push.c madatory/rotate.c madatory/rev_rotate.c madatory/indexes.c madatory/sorting.c madatory/butterfly.c madatory/log.c
 
-BONUS_SRCS = get_next_line.c get_next_line_utils.c checker.c ft_split.c errors.c valid.c initialize.c swap.c push.c rotate.c rev_rotate.c indexes.c checker_utils.c sorting.c
+BONUS_SRCS = checker/get_next_line.c checker/get_next_line_utils.c checker/checker.c checker/ft_split.c checker/errors.c checker/valid.c checker/initialize.c checker/swap.c checker/push.c checker/rotate.c checker/rev_rotate.c checker/indexes.c checker/checker_utils.c checker/sorting.c
 
 INCS = ./
 

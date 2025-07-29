@@ -6,12 +6,12 @@
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 17:33:48 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/26 17:33:50 by natalieyan       ###   ########.fr       */
+/*   Updated: 2025/07/29 21:31:51 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../madatory/push_swap.h"
 #include "get_next_line.h"
-#include "push_swap.h"
 
 int	valid_instruct(char *str, t_stack **a, t_stack **b)
 {

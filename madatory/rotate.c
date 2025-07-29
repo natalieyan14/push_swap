@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 17:33:41 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/26 17:33:43 by natalieyan       ###   ########.fr       */
+/*   Created: 2025/07/26 17:27:27 by natalieyan        #+#    #+#             */
+/*   Updated: 2025/07/29 21:36:45 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_exit(void)
+void	rotate(t_stack **a)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	free_list(char **nums, int nums_count)
-{
-	int	i;
-
-	i = 0;
-	while (i < nums_count)
-	{
-		free(nums[i]);
-		i++;
-	}
-	free(nums);
-}
-
-void	free_stack(t_stack **a)
-{
+	t_stack	*first;
 	t_stack	*tmp;
 
-	while (*a)
-	{
-		tmp = (*a)->next;
-		free(*a);
-		(*a) = tmp;
-	}
+	if (!a || !(*a) || stack_len(*a) < 2)
+		return ;
+	first = (*a);
+	(*a) = (*a)->next;
+	tmp = (*a);
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = first;
+	first->next = 0;
 }
 
-void	error_exit_with_free(char **nums, int nums_count, t_stack **a)
+void	ra(t_stack **a)
 {
-	free_list(nums, nums_count);
-	free_stack(a);
-	error_exit();
+	write(1, "ra\n", 3);
+	rotate(a);
+}
+
+void	rb(t_stack **b)
+{
+	write(1, "rb\n", 3);
+	rotate(b);
+}
+
+void	rr(t_stack **a, t_stack **b)
+{
+	write(1, "rr\n", 3);
+	rotate(a);
+	rotate(b);
 }
