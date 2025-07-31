@@ -5,41 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: natalieyan <natalieyan@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 17:34:07 by natalieyan        #+#    #+#             */
-/*   Updated: 2025/07/29 21:36:45 by natalieyan       ###   ########.fr       */
+/*   Created: 2025/07/31 01:54:35 by natalieyan        #+#    #+#             */
+/*   Updated: 2025/07/31 01:55:01 by natalieyan       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_with_offset(t_stack **a, t_stack **b, t_sortdata *data)
-{
-	if ((*a)->index <= data->min)
-	{
-		pb(a, b);
-		data->rb_count++;
-		data->min++;
-	}
-	else if ((*a)->index <= data->min + data->offset)
-	{
-		pb(a, b);
-		data->min++;
-	}
-	else
-		ra(a);
-}
-
 void	sort_in_b(t_stack **a, t_stack **b)
 {
-	t_sortdata	data;
+	int	min;
+	int	len;
+	int	offset;
 
-	data.min = 0;
-	data.offset = my_log2(2 * stack_len(*a)) * my_log5(0.25 * stack_len(*a));
-	data.rb_count = 0;
+	min = 0;
+	len = stack_len(*a);
+	offset = my_log2(2 * len) * my_log5(0.25 * len);
 	while (*a)
-		push_with_offset(a, b, &data);
-	while (data.rb_count-- > 0)
-		rb(b);
+	{
+		if ((*a)->index <= min)
+		{
+			pb(a, b);
+			rb(b);
+			min++;
+		}
+		else if ((*a)->index <= min + offset)
+		{
+			pb(a, b);
+			min++;
+		}
+		else
+			ra(a);
+	}
 }
 
 int	get_position(t_stack *a, int index)
